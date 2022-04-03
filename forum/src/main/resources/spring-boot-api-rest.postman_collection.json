@@ -32,6 +32,39 @@
 			"response": []
 		},
 		{
+			"name": "GET /topicos/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/topicos/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topicos",
+						":id"
+					],
+					"query": [
+						{
+							"key": "nomeCurso",
+							"value": "Spring+Boot",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "POST /topicos",
 			"request": {
 				"method": "POST",
@@ -44,7 +77,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"titulo\": \"Duvida postman\",\r\n    \"mensagem\": \"Texto da mensagem\",\r\n    \"nomeCurso\": \"Spring Boot\"\r\n}"
+					"raw": "{\r\n    \"titulo\": \"Duvida postman 2\",\r\n    \"mensagem\": \"Texto da mensagem 2\",\r\n    \"nomeCurso\": \"Spring Boot\"\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/topicos",
@@ -61,6 +94,92 @@
 							"key": "nomeCurso",
 							"value": "Spring+Boot",
 							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /topicos/{id}",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Dúvida 3 nova\",\r\n   \"mensagem\": \"Tag HTML nova\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/topicos/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topicos",
+						":id"
+					],
+					"query": [
+						{
+							"key": "nomeCurso",
+							"value": "Spring+Boot",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /topicos/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/topicos/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topicos",
+						":id"
+					],
+					"query": [
+						{
+							"key": "nomeCurso",
+							"value": "Spring+Boot",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3"
 						}
 					]
 				}
