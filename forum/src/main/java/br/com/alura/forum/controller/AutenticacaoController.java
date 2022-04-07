@@ -3,6 +3,7 @@ package br.com.alura.forum.controller;
 
 import br.com.alura.forum.config.security.AutenticacaoService;
 import br.com.alura.forum.config.security.TokenService;
+import br.com.alura.forum.controller.dto.TokenDto;
 import br.com.alura.forum.controller.form.LoginForm;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +35,8 @@ public class AutenticacaoController {
     try{
       Authentication authentication = authenticationManager.authenticate(dadosLogin);
       String token = tokenService.gerarToken(authentication);
-      System.out.println(token);
 
-      return ResponseEntity.ok().build();
+      return ResponseEntity.ok(new TokenDto(token, "Bearer"));
     }catch (AuthenticationException e){
       return ResponseEntity.badRequest().build();
     }
