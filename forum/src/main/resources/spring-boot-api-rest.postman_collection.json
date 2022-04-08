@@ -22,8 +22,23 @@
 					],
 					"query": [
 						{
+							"key": "page",
+							"value": "0",
+							"disabled": true
+						},
+						{
 							"key": "nomeCurso",
 							"value": "Spring+Boot",
+							"disabled": true
+						},
+						{
+							"key": "pageSize",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "ordenacao",
+							"value": "id",
 							"disabled": true
 						}
 					]
@@ -73,6 +88,11 @@
 						"key": "Content-Type",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBcGkgZG8gRm9ydW0gZGEgQWx1cmEiLCJzdWIiOiIxIiwiaWF0IjoxNjQ5NDEyMDc4LCJleHAiOjE2NDk0OTg0Nzh9.Gp1bqcau0NACUOZ3kKxHNWL49TCgX1F9Dw4lB271ceY",
+						"type": "text"
 					}
 				],
 				"body": {
@@ -109,11 +129,64 @@
 						"key": "Content-Type",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBcGkgZG8gRm9ydW0gZGEgQWx1cmEiLCJzdWIiOiIxIiwiaWF0IjoxNjQ5NDEyMDc4LCJleHAiOjE2NDk0OTg0Nzh9.Gp1bqcau0NACUOZ3kKxHNWL49TCgX1F9Dw4lB271ceY",
+						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"titulo\": \"Dúvida 3 nova\",\r\n   \"mensagem\": \"Tag HTML nova\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/topicos/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topicos",
+						":id"
+					],
+					"query": [
+						{
+							"key": "nomeCurso",
+							"value": "Spring+Boot",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /topicos/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBcGkgZG8gRm9ydW0gZGEgQWx1cmEiLCJzdWIiOiIxIiwiaWF0IjoxNjQ5NDEyMDc4LCJleHAiOjE2NDk0OTg0Nzh9.Gp1bqcau0NACUOZ3kKxHNWL49TCgX1F9Dw4lB271ceY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
 				},
 				"url": {
 					"raw": "http://localhost:8080/topicos/:id",
@@ -144,9 +217,9 @@
 			"response": []
 		},
 		{
-			"name": "DELETE /topicos/{id}",
+			"name": "POST /auth",
 			"request": {
-				"method": "DELETE",
+				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -156,30 +229,23 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "{\r\n    \"email\": \"aluno@email.com\",\r\n     \"senha\": \"123456\"\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/topicos/:id",
+					"raw": "http://localhost:8080/auth",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"topicos",
-						":id"
+						"auth"
 					],
 					"query": [
 						{
 							"key": "nomeCurso",
 							"value": "Spring+Boot",
 							"disabled": true
-						}
-					],
-					"variable": [
-						{
-							"key": "id",
-							"value": "3"
 						}
 					]
 				}
