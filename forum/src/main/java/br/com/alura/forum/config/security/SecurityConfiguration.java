@@ -8,6 +8,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -42,11 +43,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   //Configuracoes de Autorizacao
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.authorizeHttpRequests()
-        .antMatchers(HttpMethod.GET,"/topicos").permitAll()
-        .antMatchers(HttpMethod.GET,"/topicos/*").permitAll()
-        .antMatchers(HttpMethod.POST,"/auth").permitAll()
-        .antMatchers(HttpMethod.GET,"/actuator/**").permitAll()
+    http.authorizeRequests()
+        .antMatchers(HttpMethod.GET, "/topicos").permitAll()
+        .antMatchers(HttpMethod.GET, "/topicos/*").permitAll()
+        .antMatchers(HttpMethod.POST, "/auth").permitAll()
+        .antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
+        .antMatchers("/swagger-resources/**").permitAll()
         .anyRequest().authenticated()
         .and().csrf().disable()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -56,7 +58,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   //Configuracoes de recursos estaticos (js, css, imagens, etc.)
   @Override
   public void configure(WebSecurity web) throws Exception {
-
+    web.ignoring()
+        .antMatchers("/**.html", "/v2/api-docs", "/webjars/**", "/configuration/**", "/swagger-resources/**");
   }
 
 }
